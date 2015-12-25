@@ -86,11 +86,10 @@ WebVRConfig = {
 <script src="build/webvr-manager.js"></script>
 
 <!-- text stuff -->
-<script src="Projector.js"></script>
-<script src="CanvasRenderer.js"></script>
-<script src="TextGeometry.js"></script>
-<script src="FontUtils.js"></script>
-<script src="droid_serif_regular.typeface.js"></script>
+<script src='TextGeometry.js'></script>
+<script src='FontUtils.js'></script>
+<script src='threex.text.js'></script>
+<script src="fonts/droid/droid_serif_bold.typeface.js"></script>
   
 
 <script>
@@ -159,37 +158,20 @@ var simulateRain = function(){
 };
 
 // TEXT
-var theText = "Hello three.js! :)";
-var text3d = new THREE.TextGeometry( theText, {
-
-	size: 80,
-	height: 20,
-	curveSegments: 2,
-	font: "droid serif"
-
-});
-
-text3d.computeBoundingBox();
-var centerOffset = -0.5 * ( text3d.boundingBox.max.x - text3d.boundingBox.min.x );
-
-var material = new THREE.MeshFaceMaterial( [
-	new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff, overdraw: 0.5 } ),
-	new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
-] );
-
-var text = new THREE.Mesh( text3d, material );
-
-text.position.x = centerOffset;
-text.position.y = 100;
-text.position.z = 0;
-
-text.rotation.x = 0;
-text.rotation.y = Math.PI * 2;
-
-group = new THREE.Group();
-group.add( text );
-
-scene.add( group );
+var mesh	= new THREEx.Text('Merrry')
+mesh.scale.multiplyScalar(1/2)
+mesh.position.y	= +0.6
+mesh.position.z	= -2
+scene.add(mesh)
+var mesh	= new THREEx.Text('Christmas')
+mesh.scale.multiplyScalar(1/2)
+mesh.position.z	= -2
+scene.add(mesh)
+var mesh	= new THREEx.Text('Billy!')
+mesh.scale.multiplyScalar(1/2)
+mesh.position.y	= -0.6
+mesh.position.z	= -2
+scene.add(mesh)
 
 // Add a repeating grid as a skybox.
 var boxWidth = 5;
