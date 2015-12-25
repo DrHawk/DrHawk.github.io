@@ -109,7 +109,31 @@ var effect = new THREE.VREffect(renderer);
 effect.setSize(window.innerWidth, window.innerHeight);
 
 // SNOW STUFF
+var numParticles = 100,
+	width = 100,
+	height = 100,
+	depth = 100,
+	systemGeometry = new THREE.Geometry(),
+	systemMaterial = new THREE.ParticleBasicMaterial({ color: 0xFFFFFF });
+	
+for( var i = 0; i < numParticles; i++ ) {
+	var vertex = new THREE.Vector3(
+			rand( width ),
+			rand( height ),
+			rand( depth )
+		);
 
+	systemGeometry.vertices.push( vertex );
+}
+
+
+particleSystem = new THREE.ParticleSystem( systemGeometry, systemMaterial );
+
+scene.add( particleSystem );
+
+function rand( v ) {
+	return (v * (Math.random() - 0.5));
+}
 
 // Add a repeating grid as a skybox.
 var boxWidth = 5;
