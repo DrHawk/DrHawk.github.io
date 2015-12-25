@@ -114,7 +114,7 @@ var numParticles = 100,
 	height = 100,
 	depth = 100,
 	systemGeometry = new THREE.Geometry(),
-	systemMaterial = new THREE.ParticleBasicMaterial({ color: 0xFFFFFF });
+	systemMaterial = new THREE.PointsMaterial({ color: 0xFFFFFF });
 	
 for( var i = 0; i < numParticles; i++ ) {
 	var vertex = new THREE.Vector3(
@@ -127,7 +127,7 @@ for( var i = 0; i < numParticles; i++ ) {
 }
 
 
-particleSystem = new THREE.ParticleSystem( systemGeometry, systemMaterial );
+particleSystem = new THREE.Points( systemGeometry, systemMaterial );
 
 scene.add( particleSystem );
 
