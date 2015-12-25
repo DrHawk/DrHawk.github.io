@@ -187,6 +187,9 @@ function animate(timestamp) {
   manager.render(scene, camera, timestamp);
 
   requestAnimationFrame(animate);
+  
+  // Snow?
+  particleSystem.material.uniforms.elapsedTime.value = elapsedTime * 10;
 }
 
 // Kick off animation loop
