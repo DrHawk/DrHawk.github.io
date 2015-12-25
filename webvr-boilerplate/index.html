@@ -84,6 +84,11 @@ WebVRConfig = {
   Helps enter and exit VR mode, provides best practices while in VR.
   -->
 <script src="build/webvr-manager.js"></script>
+
+<!-- garamond font -->
+<script src="TextGeometry.js"></script>
+<script src="FontUtils.js"></script>
+<script src="droid_serif_regular.typeface.js"></script>
   
 
 <script>
@@ -150,6 +155,40 @@ var simulateRain = function(){
 
   particles.verticesNeedUpdate = true;
 };
+
+// TEXT
+var theText = "Hello three.js! :)";
+
+var text3d = new THREE.TextGeometry( theText, {
+
+	size: 80,
+	height: 20,
+	curveSegments: 2,
+	font: "droid serif"
+
+});
+
+text3d.computeBoundingBox();
+var centerOffset = -0.5 * ( text3d.boundingBox.max.x - text3d.boundingBox.min.x );
+
+var material = new THREE.MeshFaceMaterial( [
+	new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff, overdraw: 0.5 } ),
+	new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
+] );
+
+text = new THREE.Mesh( text3d, material );
+
+text.position.x = centerOffset;
+text.position.y = 100;
+text.position.z = 0;
+
+text.rotation.x = 0;
+text.rotation.y = Math.PI * 2;
+
+group = new THREE.Group();
+group.add( text );
+
+scene.add( group );
 
 // Add a repeating grid as a skybox.
 var boxWidth = 5;
