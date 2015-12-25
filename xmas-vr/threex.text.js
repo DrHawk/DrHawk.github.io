@@ -24,7 +24,7 @@ THREEx.Text	= function(text, options){
 	})
 	
 	// create a mesh with it
-	var material	= new THREE.MeshNormalMaterial()
+	var material	= new THREE.MeshNormalMaterial();
 	var mesh	= new THREE.Mesh(geometry, material)
 	// return mesh
 	return mesh

@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<title>Billy!</title>
+<title>Rachel!</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="mobile-web-app-capable" content="yes">
@@ -158,20 +158,25 @@ var simulateRain = function(){
 };
 
 // TEXT
-var mesh	= new THREEx.Text('Happy')
+var mesh	= new THREEx.Text('A Belly Dance')
 mesh.scale.multiplyScalar(1/2)
 mesh.position.y	= +0.6
 mesh.position.z	= -2
 scene.add(mesh)
-var mesh	= new THREEx.Text('Christmas')
+var mesh	= new THREEx.Text('Photoshoot')
 mesh.scale.multiplyScalar(1/2)
 mesh.position.z	= -2
 scene.add(mesh)
-var mesh	= new THREEx.Text('Billy!')
-mesh.scale.multiplyScalar(1/2)
-mesh.position.y	= -0.6
-mesh.position.z	= -2
-scene.add(mesh)
+
+// Photoshphere
+var sphere = new THREE.Mesh(
+  new THREE.SphereGeometry(100, 32, 32),
+  new THREE.MeshBasicMaterial({
+    map: THREE.ImageUtils.loadTexture('bergsjostolen.jpg')
+  })
+);
+sphere.scale.x = -1;
+scene.add(sphere)
 
 // Add a repeating grid as a skybox.
 var boxWidth = 5;
