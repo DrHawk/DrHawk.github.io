@@ -84,7 +84,7 @@ WebVRConfig = {
   Helps enter and exit VR mode, provides best practices while in VR.
   -->
 <script src="build/webvr-manager.js"></script>
-  
+
 
 <script>
 // Setup three.js WebGL renderer. Note: Antialiasing is a big performance hit.
@@ -108,62 +108,6 @@ var controls = new THREE.VRControls(camera);
 var effect = new THREE.VREffect(renderer);
 effect.setSize(window.innerWidth, window.innerHeight);
 
-// SNOW STUFF
-texture = THREE.ImageUtils.loadTexture( 'snowflake1.png' );
-		
-var numParticles = 10000,
-	width = 100,
-	height = particleSystemHeight,
-	depth = 100,
-	parameters = {
-		color: 0xFFFFFF,
-		height: particleSystemHeight,
-		radiusX: 2.5,
-		radiusZ: 2.5,
-		size: 100,
-		scale: 4.0,
-		opacity: 0.4,
-		speedH: 1.0,
-		speedV: 1.0
-	},
-	systemGeometry = new THREE.Geometry(),
-	systemMaterial = new THREE.ShaderMaterial({
-		uniforms: {
-			color:  { type: 'c', value: new THREE.Color( parameters.color ) },
-			height: { type: 'f', value: parameters.height },
-			elapsedTime: { type: 'f', value: 0 },
-			radiusX: { type: 'f', value: parameters.radiusX },
-			radiusZ: { type: 'f', value: parameters.radiusZ },
-			size: { type: 'f', value: parameters.size },
-			scale: { type: 'f', value: parameters.scale },
-			opacity: { type: 'f', value: parameters.opacity },
-			texture: { type: 't', value: texture },
-			speedH: { type: 'f', value: parameters.speedH },
-			speedV: { type: 'f', value: parameters.speedV }
-		},
-		vertexShader: document.getElementById( 'step07_vs' ).textContent,
-		fragmentShader: document.getElementById( 'step09_fs' ).textContent,
-		blending: THREE.AdditiveBlending,
-		transparent: true,
-		depthTest: false
-	});
-
-for( var i = 0; i < numParticles; i++ ) {
-	var vertex = new THREE.Vector3(
-			rand( width ),
-			Math.random() * height,
-			rand( depth )
-		);
-
-	systemGeometry.vertices.push( vertex );
-}
-
-particleSystem = new THREE.ParticleSystem( systemGeometry, systemMaterial );
-particleSystem.position.y = -height/2;
-
-scene.add( particleSystem );
-
-clock = new THREE.Clock();
 
 // Add a repeating grid as a skybox.
 var boxWidth = 5;
@@ -195,7 +139,7 @@ var params = {
 var manager = new WebVRManager(renderer, effect, params);
 
 // Create 3D objects.
-/*var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 var material = new THREE.MeshNormalMaterial();
 var cube = new THREE.Mesh(geometry, material);
 
@@ -204,11 +148,11 @@ cube.position.z = -1;
 
 
 // Add cube mesh to your three.js scene
-scene.add(cube);*/
+scene.add(cube);
 // Request animation frame loop function
 function animate(timestamp) {
   // Apply rotation to cube mesh
-  //cube.rotation.y += 0.01;
+  cube.rotation.y += 0.01;
 
   // Update VR headset position and apply to camera.
   controls.update();
