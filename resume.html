@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<title>Resume &#124; John Furr</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+    <style>.ieWarning {display: block;}</style>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {box-sizing: border-box;}
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            
+            margin: 0;
+            background: #f0f0f0;
+            font-size: 16px/1;
+            font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        ol,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        main,
+        li {
+            display: block;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-size: inherit;
+        }
+        strong {
+            font-weight: bold;
+        }
+        a,
+        button {
+            color: inherit;
+            transition: .3s;
+        }
+        a {
+            text-decoration: none;
+        }
+        button {
+            overflow: visible;
+            border: 0;
+            font: inherit;
+            -webkit-font-smoothing: inherit;
+            letter-spacing: inherit;
+            background: none;
+            cursor: pointer;
+        }
+        ::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+        :focus {
+            outline: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 0;
+        }
+        /* Header Styles */
+        Header {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h1 {
+            padding: 1em 0;
+            font-size: 3em;
+        }
+        /* Navigation Styles */
+        
+        /* Blink Animation */
+        .blink {
+            -webkit-animation: blink .75s linear infinite;
+            -moz-animation: blink .75s linear infinite;
+            -ms-animation: blink .75s linear infinite;
+            -o-animation: blink .75s linear infinite;
+             animation: blink .75s linear infinite;
+        }
+        @-webkit-keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            50.01% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        @-moz-keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            50.01% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        @-ms-keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            50.01% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        @-o-keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            50.01% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 1; }  
+            50.01% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: none;" class="ieWarning"><p><strong>Plz update your browser!</strong></p></div>
+        <nav>
+            <h1>John Furr <span id="insert"></span><a class="blink" href="#">&#95;</a></h1>
+            <nav>
+                <ul>
+                    <li><a onclick="" href="">Web Developer</a></li>
+                    <li><a onclick="" href="">Photographer</a></li>
+                    <li><a onclick="" href="">Videographer</a></li>
+                    <li><a onclick="" href="">Designer</a></li>
+                    <li><a onclick="" href="">Animator</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <script>
+        var str = "web developer",
+        i = 0,
+        isTag,
+        text;
+
+        (function type() {
+            text = str.slice(0, ++i);
+
+            document.getElementById('insert').innerHTML = text;
+            
+            if (text )
+            
+            setTimeout(type, 50);
+        }());
+    </script>
+</body>
+</html>
