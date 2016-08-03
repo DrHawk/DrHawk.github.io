@@ -57,14 +57,8 @@
         a {
             text-decoration: none;
         }
-        button {
-            overflow: visible;
-            border: 0;
-            font: inherit;
-            -webkit-font-smoothing: inherit;
-            letter-spacing: inherit;
-            background: none;
-            cursor: pointer;
+        p {
+            font-family: Georgia, Times, "Times New Roman", serif;
         }
         ::-moz-focus-inner {
             padding: 0;
@@ -128,6 +122,22 @@
             100% { opacity: 0; }
         }
     </style>
+    <script>
+        var i = 0, text, str="web developer";
+        function type() {
+            text = str.slice(0, ++i); 
+            console.log(i);
+            document.getElementById('insert').innerHTML = text;
+            if (text === str) return;
+            setTimeout(type, 50); 
+        };
+        function reType(e) {
+            i = 0,
+            str = e;
+            console.log(str);
+            type();
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -136,30 +146,17 @@
             <h1>John Furr <span id="insert"></span><a class="blink" href="#">&#95;</a></h1>
             <nav>
                 <ul>
-                    <li><a onclick="" href="">Web Developer</a></li>
-                    <li><a onclick="" href="">Photographer</a></li>
-                    <li><a onclick="" href="">Videographer</a></li>
-                    <li><a onclick="" href="">Designer</a></li>
-                    <li><a onclick="" href="">Animator</a></li>
+                    <li><a onclick="reType('web developer')" href="#">Web Developer</a></li>
+                    <li><a onclick="reType('photographer')" href="#">Photographer</a></li>
+                    <li><a onclick="reType('videographer')" href="#">Videographer</a></li>
+                    <li><a onclick="reType('designer')" href="#">Designer</a></li>
+                    <li><a onclick="reType('animator')" href="#">Animator</a></li>
                 </ul>
             </nav>
         </nav>
     </header>
     <script>
-        var str = "web developer",
-        i = 0,
-        isTag,
-        text;
-
-        (function type() {
-            text = str.slice(0, ++i);
-
-            document.getElementById('insert').innerHTML = text;
-            
-            if (text )
-            
-            setTimeout(type, 50);
-        }());
+        type();
     </script>
 </body>
 </html>
