@@ -97,20 +97,31 @@
         main {}
         article {
             display: none;
-            justify-content: space-between;
-            flex-direction: row;
         }
         article:target {
             display: block;
         }
-        section p {margin-bottom: 1em;}
+        section p {
+            margin-bottom: 1em;
+        }
         section a {
             display: block;
         }
         /* Developer Section Styles */
-        #dev > p {margin-bottom: 1em;}
-        #dev section {}
-        #dev section:first-of-type {}
+        #dev > p {
+            margin-bottom: 1em;
+        }
+        #dev section {
+            display: inline-block;
+            vertical-align: top;
+            width: 45%;
+        }
+        #dev section:nth-child(odd) {
+            margin-right: 5%;
+        }
+        #dev section:first-of-type {
+            width: 100%;
+        }
         /* Blink Animation */
         .blink {
             -webkit-animation: blink .75s linear infinite;
@@ -153,8 +164,7 @@
     <script>
         var i = 0, text, str="web developer";
         function type() {
-            text = str.slice(0, ++i); 
-            console.log(i);
+            text = str.slice(0, ++i);
             document.getElementById('insert').innerHTML = text;
             if (text === str) return;
             setTimeout(type, 50); 
@@ -162,7 +172,6 @@
         function reType(e) {
             i = 0,
             str = e;
-            console.log(str);
             type();
         };
     </script>
