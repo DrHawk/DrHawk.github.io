@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Resume &#124; John Furr</title>
-    <meta name="description" content="">
+    <meta name="description" content="John Furr's resume for web development, photography, videography, design, and animation.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lte IE 9]>
     <style>.ieWarning {display: block;}</style>
@@ -56,6 +57,7 @@
         }
         a {
             text-decoration: none;
+            transition: all .2s ease-in-out
         }
         ::-moz-focus-inner {
             padding: 0;
@@ -77,12 +79,48 @@
             padding: 1em 0;
             font-size: 3em;
         }
+        /* Navigation Styles */
         nav li {
             display: inline-block;
-            margin-right: 1em;
+            border-right: 1px solid black;
+            margin-right: 0.5em;
+            padding-right: 1em;            
             
         }
-        /* Navigation Styles */
+        nav li:last-child {border: none;}
+        /* Main Styles */
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid black;
+        }
+        main {}
+        article {
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        article:target {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+        }
+        section p {margin-bottom: 1em;}
+        section a {
+            display: block;
+        }
+        /* Developer Section Styles */
+        #dev section {}
+        #dev section:first-of-type {
+            flex;
+        }
+        #dev > p {;
+            min-width: 100%;
+        }
+        
+        aside {}
         
         /* Blink Animation */
         .blink {
@@ -144,64 +182,89 @@
     <header>
         <div style="display: none;" class="ieWarning"><p><strong>Plz update your browser!</strong></p></div>
         <nav>
-            <h1>John Furr <span id="insert"></span><a class="blink" href="#">&#95;</a></h1>
+            <h1>John Furr <span id="insert"></span><span class="blink">&#95;</span></h1>
             <nav>
                 <ul>
-                    <li><a onclick="reType('web developer')" href="#">Web Developer</a></li>
-                    <li><a onclick="reType('photographer')" href="#">Photographer</a></li>
-                    <li><a onclick="reType('videographer')" href="#">Videographer</a></li>
-                    <li><a onclick="reType('designer')" href="#">Designer</a></li>
-                    <li><a onclick="reType('animator')" href="#">Animator</a></li>
+                    <li><a onclick="reType('web developer')" href="#dev">Web Developer</a></li>
+                    <li><a onclick="reType('photographer')" href="#photo">Photographer</a></li>
+                    <li><a onclick="reType('videographer')" href="#video">Videographer</a></li>
+                    <li><a onclick="reType('designer')" href="#design">Designer</a></li>
+                    <li><a onclick="reType('animator')" href="#anim">Animator</a></li>
                 </ul>
             </nav>
         </nav>
     </header>
     <main>
+        <article id="dev">
+            
         <p>Curiosity about how things work has helped me become a better web developer, learn new technologies, and solve problems.</p>
-        <section>
-            <h2>Expertise</h2>
-            <p><strong>Languages:</strong> Javascript, HTML5, CSS, PHP, SQL, SVG</p>
-            <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, Jekyll<p>
-            <p><strong>Adobe Suite:</strong> Photoshop, Illustrator, InDesign, After Effects, Premire Pro</p>
-        </section>
-        <section>
-            <h2>Experience</h2>
-            <ul>
-                <li>
-                    <h3>Web Developer</h3>
-                    <a href="">Stamp Ideas</a>
-                    <p>2013 - Present</p>
-                </li>
-                <li>
-                    <h3>Creative Inter</h3>
-                    <p>LWT Communication</p>
-                    <p>8 - 8 / 2012</p>
-                </li>
-                <li>
-                    <h3>Mac Lab Assistant</h3>
-                    <a>Memphis College of Art</a>
-                    <p>2009 - 2012</p>
-                </li>
-                <li>
-                    <h3>Eagle Scout</h3>
-                    <p>Boy Scouts of America</p>
-                    <p>2009</p>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <h3>BFA in Design Arts</h3>
-                    <a>Memphis College of Art</a>
-                    <p>Concentration in Digital Media</p>
-                    <p>Minor in Art History</p>
-                    <p>2009 - 2013</p>
-                </li>
-            </ul>
-        </section>
+            <section>
+                <h2>Expertise</h2>
+                <p><strong>Languages:</strong> Javascript, HTML5, CSS, PHP, SQL, SVG</p>
+                <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, Jekyll<p>
+                <p><strong>Adobe Suite:</strong> Photoshop, Illustrator, InDesign, After Effects, Premire Pro</p>
+            </section>
+            <section>
+                <h2>Experience</h2>
+                <ul>
+                    <li>
+                        <h3>Web Developer</h3>
+                        <p><a href="">Stamp Ideas</a>
+                        2013 - Present</p>
+                    </li>
+                    <li>
+                        <h3>Creative Intern</h3>
+                        <p>LWT Communication<br>
+                            6-8/2012</p>
+                    </li>
+                    <li>
+                        <h3>Mac Lab Assistant</h3>
+                        <p><a>Memphis College of Art</a>
+                        2009 - 2012</p>
+                    </li>
+                    <li>
+                        <h3>Eagle Scout</h3>
+                        <p>Boy Scouts of America
+                        2009</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <h3>BFA in Design Arts</h3>
+                        <p>
+                            <a href="http://mca.edu/" target="_blank">Memphis College of Art</a>
+                            Concentration in Digital Media<br>
+                            Minor in Art History<br>
+                            2009 - 2013
+                        </p>
+                    </li>
+                </ul>
+            </section>
+        </article>
+        <article id="photo">
+            <h2>Photography</h2>
+        </article>
+        <article id="video">
+            <h2>Videography</h2>
+            <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </article>
+        <article id="design">
+            <h2>Design</h2>
+        </article>
+        <article id="anim">
+            <h2>Animation</h2>
+            <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </article>
     </main>
+    <aside>
+        <h2>Contact</h2>
+        <a href="mailto:furrm.john@gmail.com">FurrM.John@gmail.com</a>
+        <a href="tel:1-334-220-1487">334-220-1487</a>
+    </aside>
     <script>
         type();
     </script>
