@@ -26,6 +26,9 @@
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
         }
+        body > div {
+            max-width: 1200px;
+        }
         h1,
         h2,
         h3,
@@ -52,12 +55,18 @@
         }
         a,
         button {
-            color: inherit;
+            color: #005999;
             transition: .3s;
         }
         a {
+            display: inline-block;
             text-decoration: none;
-            transition: all .2s ease-in-out
+            transition: all .2s ease-in-out;
+            transform-origin: 50% 50%;
+        }
+        a:hover {
+            color: #3af;
+            transform: scale(1.1);
         }
         ::-moz-focus-inner {
             padding: 0;
@@ -111,16 +120,23 @@
         #dev > p {
             margin-bottom: 1em;
         }
-        #dev section {
+        #dev > section,
+        #dev > div {
             display: inline-block;
             vertical-align: top;
-            width: 45%;
-        }
-        #dev section:nth-child(odd) {
-            margin-right: 5%;
+            width: 48%;
         }
         #dev section:first-of-type {
             width: 100%;
+        }
+        #dev > div {
+            margin-top: 2em;
+            margin-left: 2.5%;
+            padding-left: 2.5%; 
+            border-left: 1px solid #ccc;
+        }
+        #dev > div section:first-of-type {
+            margin-top: -2em;
         }
         /* Blink Animation */
         .blink {
@@ -177,91 +193,108 @@
     </script>
 </head>
 <body>
-    <header>
-        <div style="display: none;" class="ieWarning"><p><strong>Plz update your browser!</strong></p></div>
-        <nav>
-            <h1>John Furr <span id="insert"></span><span class="blink">&#95;</span></h1>
+    <div>
+        <header>
+            <div style="display: none;" class="ieWarning"><p><strong>Plz update your browser!</strong></p></div>
             <nav>
-                <ul>
-                    <li><a onclick="reType('web developer')" href="#dev">Web Developer</a></li>
-                    <li><a onclick="reType('photographer')" href="#photo">Photographer</a></li>
-                    <li><a onclick="reType('videographer')" href="#video">Videographer</a></li>
-                    <li><a onclick="reType('designer')" href="#design">Designer</a></li>
-                    <li><a onclick="reType('animator')" href="#anim">Animator</a></li>
-                </ul>
+                <h1>John Furr <span id="insert"></span><span class="blink">&#95;</span></h1>
+                <nav>
+                    <ul>
+                        <li><a onclick="reType('web developer');" href="#dev">Web Developer</a></li>
+                        <li><a onclick="reType('photographer');" href="#photo">Photographer</a></li>
+                        <li><a onclick="reType('videographer');" href="#video">Videographer</a></li>
+                        <li><a onclick="reType('designer');" href="#design">Designer</a></li>
+                        <li><a onclick="reType('animator');" href="#anim">Animator</a></li>
+                    </ul>
+                </nav>
             </nav>
-        </nav>
-    </header>
-    <main>
-        <article id="dev">
-            <p>Curiosity about how things work has helped me become a better web developer, learn new technologies, and solve problems.</p>
-            <section>
-                <h2>Expertise</h2>
-                <p><strong>Languages:</strong> Javascript, HTML5, CSS, PHP, SQL, SVG</p>
-                <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, Jekyll<p>
-                <p><strong>Software:</strong> Adobe Creative Suite, </p>
-            </section>
-            <section>
-                <h2>Experience</h2>
-                <ul>
-                    <li>
-                        <h3>Web Developer</h3>
-                        <p><a href="">Stamp Ideas</a>
-                        2013 - Present</p>
-                    </li>
-                    <li>
-                        <h3>Creative Intern</h3>
-                        <p>LWT Communication<br>
-                            6-8/2012</p>
-                    </li>
-                    <li>
-                        <h3>Mac Lab Assistant</h3>
-                        <p><a>Memphis College of Art</a>
-                        2009 - 2012</p>
-                    </li>
-                    <li>
-                        <h3>Eagle Scout</h3>
-                        <p>Boy Scouts of America
-                        2009</p>
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h2>Education</h2>
-                <ul>
-                    <li>
-                        <h3>BFA in Design Arts</h3>
-                        <p>
-                            <a href="http://mca.edu/" target="_blank">Memphis College of Art</a>
-                            Concentration in Digital Media<br>
-                            Minor in Art History<br>
-                            2009 - 2013
-                        </p>
-                    </li>
-                </ul>
-            </section>
-        </article>
-        <article id="photo">
-            <h2>Photography</h2>
-        </article>
-        <article id="video">
-            <h2>Videography</h2>
-            <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </article>
-        <article id="design">
-            <h2>Design</h2>
-        </article>
-        <article id="anim">
-            <h2>Animation</h2>
-            <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </article>
-    </main>
-    <aside>
-        <h2>Contact</h2>
-        <a href="mailto:furrm.john@gmail.com">FurrM.John@gmail.com</a>
-        <a href="tel:1-334-220-1487">334-220-1487</a>
-    </aside>
+        </header>
+        <main>
+            <article id="dev">
+                <p>Curiosity about how things work has helped me become a better web developer, learn new technologies, and solve problems.</p>
+                <section>
+                    <h2>Expertise</h2>
+                    <p><strong>Languages:</strong> Javascript, HTML5, CSS, PHP, SQL, SVG</p>
+                    <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, Jekyll<p>
+                    <p><strong>Software:</strong> Adobe Creative Suite, </p>
+                </section>
+                <section>
+                    <h2>Experience</h2>
+                    <ul>
+                        <li>
+                            <h3>Web Developer</h3>
+                            <p><a target="_blank" href="">Stamp Ideas</a>
+                            2013 - Present</p>
+                        </li>
+                        <li>
+                            <h3>Creative Intern</h3>
+                            <p>LWT Communication<br>
+                                6-8/2012</p>
+                        </li>
+                        <li>
+                            <h3>Mac Lab Assistant</h3>
+                            <p><a target="_blank" href="http://mca.edu/">Memphis College of Art</a>
+                            2009 - 2012</p>
+                        </li>
+                        <li>
+                            <h3>Eagle Scout</h3>
+                            <p>Boy Scouts of America
+                            2009</p>
+                        </li>
+                    </ul>
+                </section>
+                <div>
+                    <section>
+                        <h2>Education</h2>
+                        <ul>
+                            <li>
+                                <h3>BFA in Design Arts</h3>
+                                <p>
+                                    <a href="http://mca.edu/" target="_blank">Memphis College of Art</a>
+                                    Concentration in Digital Media<br>
+                                    Minor in Art History<br>
+                                    2009 - 2013
+                                </p>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Projects</h2>
+                        <ul>
+                            <li>
+                                <h3><a target="_blank" href="http://drivesafealabama.org/">DriveSafeAlbama.org</a> Developer</h3>
+                                <p>Adaptive Design, Custom jQuery slider, SVG Clipping Masks</p>
+                            </li>
+                            <li>
+                                <h3><a target="_blank" href="http://poppy-games.com">Poppy-Games.com</a> Developer &#92; Designer</h3>
+                                <p>CSS and SVG Animations,</p>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <article id="photo">
+                <h2>Photography</h2>
+            </article>
+            <article id="video">
+                <h2>Videography</h2>
+                <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </article>
+            <article id="design">
+                <h2>Design</h2>
+            </article>
+            <article id="anim">
+                <h2>Animation</h2>
+                <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </article>
+        </main>
+        <aside>
+            <h2>Contact</h2>
+            <a href="mailto:furrm.john@gmail.com">FurrM.John@gmail.com</a>
+            <a href="tel:1-334-220-1487">334-220-1487</a>
+        </aside>
+    </div>
     <script>
         type();
     </script>
