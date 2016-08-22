@@ -85,7 +85,7 @@
             outline: 0;
         }
         img {
-            float: left;
+            display: inline-block;
             margin-right: 1em;
             margin-bottom: 1em;
             max-width: 100%;
@@ -317,24 +317,38 @@
         }
         /* About Section Styles */
         #about p {font-family: 'Source Sans Pro', sans-serif;}
-        #about > p:first-of-type {
-            font-size: 1.5em;
-            font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
-        }
         #about p span {
             font-size: 1.1em;
             font-weight: 700;
         }
+        #about .contentContainer {
+            float: left;
+            width: 60%;
+        }
+        #about .contentContainer > p:first-of-type {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+            font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+        }
+        #about .imageContainer {
+            float: left;
+            width: 40%;
+        }
+        #about .imageContainer img {
+            width: 40%;
+        }
         .venn {
-            float right;
+            float: right;
             display: block;
             min-width: 205px;
+            margin-left: 1em;
+            margin-top: -1em;
         }
         .venn div {
             white-space: nowrap;
             display: inline-block;
             font-weight: 700;
-            padding: 3em 2.5em;
+            padding: 2.5em 2em;
             text-align: center;
             border-radius: 50%;
             border: 2px rgb(115,166,183) solid;
@@ -345,9 +359,46 @@
             background-color: rgba(12, 153, 0, .5);
             border: 2px rgb(12, 153, 03) solid;
         }
+        @media all and (max-width: 55em) {
+            #about .imageContainer {
+                width: 30%;
+                margin-right: 1em;
+            }
+            #about .imageContainer img {
+                width: 100%;
+            }
+            #about .contentContainer {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            #about .contentContainer p {
+                width: 100%;
+                order: 1;
+            }
+            .venn {
+                order: 2;
+                float: none;
+                margin-top: 5%;
+            }
+        }
+        @media all and (max-width: 600px) {
+            #about .imageContainer,
+            #about .contentContainer {
+                float: none;
+                width: 100%;
+            }
+            #about .imageContainer img {
+                width: 45%;
+                margin: 0;
+            }
+            .venn {margin: 0 auto;}
+            
+        }
+        /* Contact Section Style */
+        #contact ul {line-height: 2em;}
         /* Developer Section Styles */
         #dev > p {
-            margin-bottom: 1em;
+            margin-bottom: 1.5em;
         }
         #dev > section,
         #dev > div {
@@ -474,7 +525,7 @@
                 </ul>
             </div><!--buttons-->
             <div class="display">
-                <h1>John Furr <span class="nobreak"><span id="insert"></span><span class="blink">&#95;</span></span></h1>
+                <h1>John Furr <span class="noBreak"><span id="insert"></span><span class="blink">&#95;</span></span></h1>
                 <nav>
                     <ul>
                         <li><a onclick="reType(this)" href="#dev">Web Developer</a></li>
@@ -621,17 +672,21 @@
         <footer>
             <section id="about" class="cf">
                 <h2>About</h2>
-                <img alt="portrait" src="img/portrait.jpg" width="200" height="200" />
-                <img alt="car" src="img/car.jpg" width="200" height="200" />
-                <p><strong>Hello world!</strong></p>
-                <p>My name is John Furr, and I love <span class="tag">Cars</span>, <span class="attr">Cameras</span>, and <span class="val">Computers</span>. Also probably other things that don't start with the letter 'C'.</p>
-                <div class="venn">
-                    <div>ART</div>
-                    <div>TECH</div>
-                </div>
-                <p>An innate curosity has lead me down many avenues of study, but I am particular interested in the cross section of art and technology.</p>
+                <div class="imageContainer">
+                    <img alt="portrait" src="img/portrait.jpg" width="200" height="200" />
+                    <img alt="car" src="img/car.jpg" width="200" height="200" />
+                </div><!--imageContainer-->
+                <div class="contentContainer">
+                    <p><strong>Hello world!</strong></p>
+                    <p>My name is John Furr, and I love <span class="tag">Cars</span>, <span class="attr">Cameras</span>, and <span class="val">Computers</span>. Also probably other things that don't start with the letter 'C'.</p>
+                    <div class="venn">
+                        <div>ART</div>
+                        <div>TECH</div>
+                    </div>
+                    <p>An innate curosity has lead me down many avenues of study, but I am particular interested in the cross section of art and technology.</p>
+                </div><!--contentContainer-->
             </section>
-            <section class="cf">
+            <section id="contact">
                 <h2>Contact</h2>
                 <nav>
                     <ul>
