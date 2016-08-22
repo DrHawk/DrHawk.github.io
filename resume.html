@@ -26,9 +26,13 @@
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
         }
+        @media all and (max-width: 600px) {
+            body {width: 95%;}
+        }
         body > div {
             position: relative;
             max-width: 1200px;
+            min-width: 300px;
             margin: 0 auto;
         }
         h1,
@@ -83,6 +87,7 @@
             height: auto;
             border: 0;
         }
+        .nobreak {white-space: nowrap;}
         /* Header Styles */
         header {
             z-index: 5;
@@ -98,6 +103,22 @@
         h1 {
             padding: 1em 0;
             font-size: 3em;
+        }
+        @media all and (max-width: 60em) {
+            h1 {
+                font-size: 2.5em;
+                padding: 0.5em 0;
+            }
+        }
+        @media all and (max-width: 55em) {
+            h1 {
+                font-size: 1.8em;
+            }   
+        }
+        @media all and (max-width: 30em) {
+            h1 .nobreak {
+               display: block;
+            }   
         }
         header a {
             color: #3af;
@@ -159,6 +180,7 @@
             color: #666666;
             line-height: 0.4em;
             white-space: pre-wrap;
+            word-break: break-all;
         }
         header pre .underline {
             display: block;
@@ -201,6 +223,31 @@
             
         }
         nav li:last-child {border: none;}
+        /* Header Navigation Styles */
+        @media all and (max-width: 55em) {
+            header nav li {
+                width: 45%;
+                margin: 0;
+                border: none;
+                padding-right: 0;
+            }
+            header nav li:nth-child(odd) {
+                border-right: 1px solid black;
+            }
+            header nav li:nth-child(even) {
+                padding-left: 1em;
+                margin-left: -1em;
+            }
+            header nav li:nth-child(-n+2){ 
+                border-bottom: 1px solid black;
+            }
+        }
+        @media all and (max-width: 35em) {
+            header nav li {font-size: 0.9em;}
+        }
+        @media all and (max-width: 25em) {
+            header nav li {font-size: 0.8em;}
+        }
         /* Main Styles */
         h2 {
             font-size: 1.5em;
@@ -308,7 +355,7 @@
         };
         function reType(e) {
             i = 0,
-            str =  e;   
+            str =  e.innerHTML;   
             type();
         };
         function showDiv(button) {
@@ -356,13 +403,13 @@
                 </ul>
             </section><!--buttons-->
             <div class="display">
-                <h1>John Furr <span id="insert"></span><span class="blink">&#95;</span></h1>
+                <h1>John Furr <span class="nobreak"><span id="insert"></span><span class="blink">&#95;</span></span></h1>
                 <nav>
                     <ul>
-                        <li><a onclick="reType('Web Developer')" href="#dev">Web Developer</a></li>
-                        <li><a onclick="reType('Photographer')" href="#photo">Photographer</a></li>
-                        <li><a onclick="reType('Videographer')" href="#video">Videographer</a></li>
-                        <li><a onclick="reType('Animator')" href="#anim">Animator</a></li>
+                        <li><a onclick="reType(this)" href="#dev">Web Developer</a></li>
+                        <li><a onclick="reType(this)" href="#photo">Photographer</a></li>
+                        <li><a onclick="reType(this)" href="#video">Videographer</a></li>
+                        <li><a onclick="reType(this)" href="#anim">Animator</a></li>
                     </ul>
                 </nav>
                 <div id="html" style="display: none;">
@@ -373,10 +420,10 @@
  <span class="line">1. <span class="tag">&lt;h1&gt;</span><span class="str">John Furr</span> <span class="tag">&lt;span</span> <span class="attr">id</span><span class="str">=</span><span class="val">"insert"</span><span class="tag">&gt;&lt;/span&gt;&lt;span</span> <span class="attr">class</span><span class="str">=</span><span class="val">"blink"</span><span class="tag">&gt;</span><span class="str">&amp;#95;</span><span class="tag">&lt;/span&gt;&lt;/h1&gt;</span></span><br />
  <span class="line">2.<span class="arrow">&#9660;</span><span class="tag">&lt;nav&gt;</span></span><br />
  <span class="line">3.<span class="arrow">&#9660;</span>     <span class="tag">&lt;ul&gt;</span></span><br />
- <span class="line">4.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Web Developer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#dev"</span><span class="tag">&gt;</span><span class="str">Web Developer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
- <span class="line">5.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Photographer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#photo"</span><span class="tag">&gt;</span><span class="str">Photographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
- <span class="line">6.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Videographer');</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#video"</span><span class="tag">&gt;</span><span class="str">Videographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
- <span class="line">8.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Animator')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#anim"</span><span class="tag">&gt;</span><span class="str">Animator</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">4.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType(this)"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#dev"</span><span class="tag">&gt;</span><span class="str">Web Developer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">5.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType(this)"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#photo"</span><span class="tag">&gt;</span><span class="str">Photographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">6.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType(this);</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#video"</span><span class="tag">&gt;</span><span class="str">Videographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">8.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType(this)"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#anim"</span><span class="tag">&gt;</span><span class="str">Animator</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
  <span class="line">9.     <span class="tag">&lt;/ul&gt;</span></span><br />
 <span class="line">10. <span class="tag">&lt;/nav&gt;</span></span><br />
            
@@ -413,7 +460,7 @@
  <span class="line">6.    <span class="str">setTimeout(type, <span class="attr">50</span>);</span></span><br /> 
  <span class="line">7. <span class="str">};</span></span><br />
  <span class="line">8. <span class="str"><span class="tag">function</span> <span class="sel">reType</span>(<span class="sel">e</span>) {</span></span><br />
- <span class="line">9.    <span class="str">i = <span class="attr">0</span>, str =  e;</span></span><br /> 
+ <span class="line">9.    <span class="str">i = <span class="attr">0</span>, str =  e.<span class="sel">innerHTML</span>;</span></span><br /> 
 <span class="line">11.   <span class="str">type();</span></span><br /> 
 <span class="line">12. <span class="str">};</span></span><br /> 
                         </code>
@@ -499,6 +546,18 @@
                 <!--<iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
             </article>
         </main>
+        <aside>
+            <section>
+                <h2>Contact</h2>
+                <nav>
+                    <ul>
+                        <li><a href="mailto:furrm.john@gmail.com?subject=Job%20Offer">FurrM.John@gmail.com</a></li>
+                        <li><a href="https://www.linkedin.com/in/johnfurr" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/JohnMakes" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </aside>
     </div>
     <script>
         var hash = window.location.hash.substring(1);
@@ -509,7 +568,7 @@
                 str = "Photographer"
             } else if (hash == "video") {
                 str = "Videographer"
-            } else if (hash == "adnim") {
+            } else if (hash == "anim") {
                 str = "Animator"
             } else {
                 str = "404 Not Found"
