@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -7,7 +7,7 @@
     <meta name="description" content="John Furr's resume for web development, photography, videography, design, and animation.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lte IE 9]>
-    <style>.ieWarning {display: block;}main{opacity: 1;}</style>
+    <style>.warning,.warning .ie{display: block !important;}main{opacity: 1;}</style>
     <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
     <style>
@@ -18,8 +18,10 @@
             -webkit-text-size-adjust: 100%;
         }
         body {
+            position: relative;
             width: 80%;
             margin: 0 auto;
+            padding: 2em 0;
             background: #f0f0f0;
             font-size: 16px/1;
             font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
@@ -87,13 +89,37 @@
             height: auto;
             border: 0;
         }
-        .nobreak {white-space: nowrap;}
+        .noBreak {
+            white-space: nowrap;
+        }
+        .no-js #warning,
+        .no-js #warning .script {
+            display: block !important;
+        }
+        #warning {
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            padding: 0.2em 0;
+            position: absolute;
+            text-align: center;
+            color: #F00;
+            background-color: #47484b;
+            border-left: 2px solid #000000;
+            border-right: 2px solid #000000;
+            border-bottom: 2px solid #000000;
+        }
+        #warning a {
+            color: #F00;
+            text-decoration: underline;
+        }
         /* Header Styles */
         header {
             z-index: 5;
             width: 100%;
             color: #CCC;
-            margin: 2em 0;
+            margin-bottom: 2em;
             background-color: #1d1f21;
             border: 2px solid #000000;
             box-shadow: 5px 5px 10px #b5b5b5;
@@ -116,7 +142,7 @@
             }   
         }
         @media all and (max-width: 30em) {
-            h1 .nobreak {
+            h1 .noBreak {
                display: block;
             }   
         }
@@ -257,7 +283,6 @@
         main {
             position: relative;
             opacity: 0;
-            
             animation: fadeIn 1s ease-in;
             animation-delay: 0.5s;
             animation-fill-mode: forwards;
@@ -391,17 +416,17 @@
     </script>
 </head>
 <body>
+    <div style="display: none;" id="warning"><p class="ie" style="display: none;"><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjStbWFmdTOAhUK4SYKHTJSBIwQFggjMAA&url=https%3A%2F%2Fwww.google.com%2Fchrome%2Fbrowser%2Fdesktop%2F&usg=AFQjCNEnCNpcuwbjwWkR_ZzY4O_v0ORT9A&sig2=kOPlTTIR8TsHi0QjLsMyag" target="_blank">PLZ UPDATE YOUR BROWSER!</a></p><p class="script" style="display: none;">Please enable javascript for a optimal experience.</p></div>
     <div>
         <header>
-            <div style="display: none;" class="ieWarning"><p><strong><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjStbWFmdTOAhUK4SYKHTJSBIwQFggjMAA&url=https%3A%2F%2Fwww.google.com%2Fchrome%2Fbrowser%2Fdesktop%2F&usg=AFQjCNEnCNpcuwbjwWkR_ZzY4O_v0ORT9A&sig2=kOPlTTIR8TsHi0QjLsMyag" target="_blank">Plz update your browser!</a></strong></p></div>
-            <section class="buttons">
+            <div class="buttons">
                 <ul>
                     <li><a class="html" onclick="showDiv(this)">HTML</a></li>
                     <li><a class="css" onclick="showDiv(this)">CSS</a></li>
                     <li><a class="js" onclick="showDiv(this)">JS</a></li>
                     <li id="close"><a onclick="closeDivs()">X</a></li>
                 </ul>
-            </section><!--buttons-->
+            </div><!--buttons-->
             <div class="display">
                 <h1>John Furr <span class="nobreak"><span id="insert"></span><span class="blink">&#95;</span></span></h1>
                 <nav>
@@ -470,13 +495,14 @@
         </header>
         <main>
             <article id="dev">
+                <h2>Web Developer</h2>
                 <p>Curiosity about how things work has helped me become a better web developer, learn new technologies, and solve problems.</p>
                 <section>
                     <h2>Expertise</h2>
-                    <p><strong>Languages:</strong> Javascript, HTML5, CSS3, PHP, SQL, &amp; SVG</p>
+                    <p><strong>Languages:</strong> Javascript, HTML5, CSS3, PHP, SQL, &amp; Python</p>
                     <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, &amp; Jekyll<p>
-                    <p><strong>Skills:</strong> HTMl email development, Responsive Design, Legacy Browser support</p>
-                    <p><strong>Software:</strong> Git, Adobe Creative Suite, </p>
+                    <p><strong>Skills:</strong> HTMl Email Development, Responsive Design, &amp; Legacy Browser Support</p>
+                    <p><strong>Software / Utilities:</strong> Git, Adobe Creative Suite, </p>
                 </section>
                 <section>
                     <h2>Experience</h2>
@@ -575,6 +601,7 @@
             }
             setTimeout(type, 500);
         }
+        document.documentElement.className = 'js';
     </script>
 </body>
 </html>
