@@ -415,6 +415,28 @@
         #dev > div section:first-of-type {
             margin-top: -2em;
         }
+        @media all and (max-width: 60em) {
+            #dev section p strong {
+                display: block;
+            }
+            
+        }
+        @media all and (max-width: 55em) {
+            #dev section {
+                width: 100%;
+            }
+            #dev > div {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            #dev > div section:first-of-type {margin: 0;}
+            #dev section li a {
+                display: inline-block;
+            }
+            
+        }
         /* Blink Animation */
         .blink {
             -webkit-animation: blink .75s linear infinite;
