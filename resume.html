@@ -9,7 +9,7 @@
     <!--[if lte IE 9]>
     <style>.warning,.warning .ie{display: block !important;}main{opacity: 1;}</style>
     <![endif]-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,700" rel="stylesheet">
     <style>
         /* Base Styles */
         * {box-sizing: border-box;}
@@ -85,9 +85,25 @@
             outline: 0;
         }
         img {
+            float: left;
+            margin-right: 1em;
+            margin-bottom: 1em;
             max-width: 100%;
             height: auto;
             border: 0;
+            border-radius: 3px;
+            box-shadow: 5px 5px 10px #b5b5b5;
+            -moz-box-shadow: 5px 5px 10px #b5b5b5;
+            -webkit-box-shadow: 5px 5px 10px #b5b5b5;
+        }
+        .cf:before,
+        .cf:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+
+        .cf:after {
+            clear: both;
         }
         .noBreak {
             white-space: nowrap;
@@ -221,23 +237,23 @@
                 margin-left: 1em;
                 line-height: 1em;
         }
-        header code span.str {
+        span.str {
             color: #CCC;
         }
-        header code span.tag {
+        span.tag {
             color: #3af;
         }
-        header code span.arrow {
+        span.arrow {
             font-size: 0.8em;
             padding-right: 0.2em;
         }
-        header code span.attr {
+        span.attr {
             color: #690;
         }
-        header code span.val {
+        span.val {
             color: #d89333
         }
-        header code span.sel {
+        span.sel {
             color: #b77fdb;
         }
         /* Navigation Styles */
@@ -298,6 +314,36 @@
         }
         section a {
             display: block;
+        }
+        /* About Section Styles */
+        #about p {font-family: 'Source Sans Pro', sans-serif;}
+        #about > p:first-of-type {
+            font-size: 1.5em;
+            font-family: 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+        }
+        #about p span {
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+        .venn {
+            float right;
+            display: block;
+            min-width: 205px;
+        }
+        .venn div {
+            white-space: nowrap;
+            display: inline-block;
+            font-weight: 700;
+            padding: 3em 2.5em;
+            text-align: center;
+            border-radius: 50%;
+            border: 2px rgb(115,166,183) solid;
+            background: rgba(125,184,214, .5);
+        }
+        .venn div + div {
+            margin-left: -40px;
+            background-color: rgba(12, 153, 0, .5);
+            border: 2px rgb(12, 153, 03) solid;
         }
         /* Developer Section Styles */
         #dev > p {
@@ -572,18 +618,31 @@
                 <!--<iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
             </article>
         </main>
-        <aside>
-            <section>
+        <footer>
+            <section id="about" class="cf">
+                <h2>About</h2>
+                <img alt="portrait" src="img/portrait.jpg" width="200" height="200" />
+                <img alt="car" src="img/car.jpg" width="200" height="200" />
+                <p><strong>Hello world!</strong></p>
+                <p>My name is John Furr, and I love <span class="tag">Cars</span>, <span class="attr">Cameras</span>, and <span class="val">Computers</span>. Also probably other things that don't start with the letter 'C'.</p>
+                <div class="venn">
+                    <div>ART</div>
+                    <div>TECH</div>
+                </div>
+                <p>An innate curosity has lead me down many avenues of study, but I am particular interested in the cross section of art and technology.</p>
+            </section>
+            <section class="cf">
                 <h2>Contact</h2>
                 <nav>
                     <ul>
                         <li><a href="mailto:furrm.john@gmail.com?subject=Job%20Offer">FurrM.John@gmail.com</a></li>
                         <li><a href="https://www.linkedin.com/in/johnfurr" target="_blank">LinkedIn</a></li>
                         <li><a href="https://github.com/JohnMakes" target="_blank">GitHub</a></li>
+                        <li><a href="img/resume.pdf" target="_blank">Download my resume.</a></li>
                     </ul>
                 </nav>
             </section>
-        </aside>
+        </footer>
     </div>
     <script>
         var hash = window.location.hash.substring(1);
