@@ -27,7 +27,9 @@
             -webkit-font-smoothing: antialiased;
         }
         body > div {
+            position: relative;
             max-width: 1200px;
+            margin: 0 auto;
         }
         h1,
         h2,
@@ -63,6 +65,7 @@
             text-decoration: none;
             transition: all .2s ease-in-out;
             transform-origin: 50% 50%;
+            cursor: pointer;
         }
         a:hover {
             color: #3af;
@@ -81,12 +84,109 @@
             border: 0;
         }
         /* Header Styles */
-        Header {
-            margin-bottom: 2em;
+        header {
+            z-index: 5;
+            width: 100%;
+            color: #CCC;
+            margin: 2em 0;
+            background-color: #1d1f21;
+            border: 2px solid #000000;
+            box-shadow: 5px 5px 10px #b5b5b5;
+            -moz-box-shadow: 5px 5px 10px #b5b5b5;
+            -webkit-box-shadow: 5px 5px 10px #b5b5b5;
         }
         h1 {
             padding: 1em 0;
             font-size: 3em;
+        }
+        header a {
+            color: #3af;
+            padding: 0.5em;
+        }
+        header a:hover,
+        header a.active {
+            color: #CCC;
+            transform: scale(1.1);
+        }
+        header .buttons {
+            padding: 1em;
+            background-color: #47484b;
+        }
+        header .buttons li {
+            cursor: pointer;
+            top: 0;
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            background-color: #1d1f20;
+            -moz-box-shadow: 0px 4px 0px 0px #000;
+            -webkit-box-shadow: 0px 4px 0px 0px #000;
+            box-shadow: 0px 4px 0px 0px #000;
+            transition: all .2s ease-in-out;
+        }
+        header .buttons li:hover,
+        header .buttons li.active {
+            top: 4px;
+            -moz-box-shadow: 0px 0 0px 0px #000;
+            -webkit-box-shadow: 0px 0 0px 0px #000;
+            box-shadow: 0px 0 0px 0px #000;
+        }
+        header .buttons a:hover,
+        header .buttons li.active a {
+            color: #CCC;
+            transform: scale(0.9);
+        }
+        header .close {
+            display: none;
+            padding: 0.5em 1em;
+        }
+        header .buttons a {
+            font-weight: 700;
+        }
+        header .display {
+            padding: 1em;
+            border: 3px solid #000;
+            border-top: 2px solid #000;
+            box-shadow: inset 0 0 10px #000000;
+            -moz-box-shadow: inset 0 0 10px #000000;
+            -webkit-box-shadow: inset 0 0 10px #000000;
+        }
+        header pre {
+            color: #666666;
+            line-height: 0.4em;
+            white-space: pre-wrap;
+        }
+        header pre .underline {
+            display: block;
+            height: 1px;
+            border: 0;
+            margin-top: 1em;
+            background: #333;
+        }
+        header code span.line {
+                display: block;
+                text-indent: -1.5em;
+                margin-left: 1em;
+                line-height: 1em;
+        }
+        header code span.str {
+            color: #CCC;
+        }
+        header code span.tag {
+            color: #3af;
+        }
+        header code span.arrow {
+            font-size: 0.8em;
+            padding-right: 0.2em;
+        }
+        header code span.attr {
+            color: #690;
+        }
+        header code span.val {
+            color: #d89333
+        }
+        header code span.sel {
+            color: #b77fdb;
         }
         /* Navigation Styles */
         nav li {
@@ -106,7 +206,7 @@
         main {
             position: relative;
             opacity: 0;
-            top: -2i0ppx;
+            
             animation: fadeIn 1s ease-in;
             animation-delay: 0.5s;
             animation-fill-mode: forwards;
@@ -195,7 +295,7 @@
             } 
     </style>
     <script>
-        var i = 0, text, str="web developer";
+        var i = 0, text, str;
         function type() {
             text = str.slice(0, ++i);
             document.getElementById('insert').innerHTML = text;
@@ -204,27 +304,106 @@
         };
         function reType(e) {
             i = 0,
-            str = e;
+            str =  e;   
             type();
+        };
+        function showDiv(button){
+            var buttons = document.querySelectorAll('.buttons li'), i;
+            for (i = 0; i < buttons.length; ++i) {
+              buttons[i].className = "";
+            }
+            var parent = button.parentElement;
+            var className = button.getAttribute("class");
+            if (parent.className == 'active') {
+                parent.className = "";
+            }else {
+                parent.className = "active";
+            }
+            var divs = document.querySelectorAll('.display div'), i;
+            for (i = 0; i < divs.length; ++i) {
+              divs[i].style.display = "none";
+            }
+            document.getElementById(className).style.display = 'block';
         };
     </script>
 </head>
 <body>
     <div>
         <header>
-            <div style="display: none;" class="ieWarning"><p><strong>Plz update your browser!</strong></p></div>
-            <nav>
+            <div style="display: none;" class="ieWarning"><p><strong><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjStbWFmdTOAhUK4SYKHTJSBIwQFggjMAA&url=https%3A%2F%2Fwww.google.com%2Fchrome%2Fbrowser%2Fdesktop%2F&usg=AFQjCNEnCNpcuwbjwWkR_ZzY4O_v0ORT9A&sig2=kOPlTTIR8TsHi0QjLsMyag" target="_blank">Plz update your browser!</a></strong></p></div>
+            <section class="buttons">
+                <ul>
+                    <li><a class="html" onclick="showDiv(this)">HTML</a></li>
+                    <li><a class="css" onclick="showDiv(this)">CSS</a></li>
+                    <li><a class="js" onclick="showDiv(this)">JS</a></li>
+                    <li><a class="close" onclick="closeDivs(this)">X</a></li>
+                </ul>
+            </section><!--buttons-->
+            <div class="display">
                 <h1>John Furr <span id="insert"></span><span class="blink">&#95;</span></h1>
                 <nav>
                     <ul>
-                        <li><a onclick="reType('web developer');" href="#dev">Web Developer</a></li>
-                        <li><a onclick="reType('photographer');" href="#photo">Photographer</a></li>
-                        <li><a onclick="reType('videographer');" href="#video">Videographer</a></li>
-                        <li><a onclick="reType('designer');" href="#design">Designer</a></li>
-                        <li><a onclick="reType('animator');" href="#anim">Animator</a></li>
+                        <li><a onclick="reType('Web Developer')" href="#dev">Web Developer</a></li>
+                        <li><a onclick="reType('Photographer')" href="#photo">Photographer</a></li>
+                        <li><a onclick="reType('Videographer')" href="#video">Videographer</a></li>
+                        <li><a onclick="reType('Animator')" href="#anim">Animator</a></li>
                     </ul>
                 </nav>
-            </nav>
+                <div id="html" style="display: none;">
+                    <pre>
+                        <code>
+// HTML
+<span class="underline"></span>
+ <span class="line">1. <span class="tag">&lt;h1&gt;</span><span class="str">John Furr</span> <span class="tag">&lt;span</span> <span class="attr">id</span><span class="str">=</span><span class="val">"insert"</span><span class="tag">&gt;&lt;/span&gt;&lt;span</span> <span class="attr">class</span><span class="str">=</span><span class="val">"blink"</span><span class="tag">&gt;</span><span class="str">&amp;#95;</span><span class="tag">&lt;/span&gt;&lt;/h1&gt;</span></span><br />
+ <span class="line">2.<span class="arrow">&#9660;</span><span class="tag">&lt;nav&gt;</span></span><br />
+ <span class="line">3.<span class="arrow">&#9660;</span>     <span class="tag">&lt;ul&gt;</span></span><br />
+ <span class="line">4.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Web Developer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#dev"</span><span class="tag">&gt;</span><span class="str">Web Developer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">5.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Photographer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#photo"</span><span class="tag">&gt;</span><span class="str">Photographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">6.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Videographer');</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#video"</span><span class="tag">&gt;</span><span class="str">Videographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">8.         <span class="tag">&lt;li&gt;&lt;a</span><span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Animator')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#anim"</span><span class="tag">&gt;</span><span class="str">Animator</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">9.     <span class="tag">&lt;/ul&gt;</span></span><br />
+<span class="line">10. <span class="tag">&lt;/nav&gt;</span></span><br />
+           
+                        </code>
+                    </pre>
+                </div><!--html-->
+                <div id="css" style="display:none;">
+                    <pre>
+                        <code>
+// CSS
+<span class="underline"></span>
+ <span class="line">1. <span class="str"><span class="tag">.blink</span> {</span></span><br />
+ <span class="line">2.        <span class="str"><span class="sel">animation:</span> <span class="val">blink <span class="attr">.75s</span> linear infinite</span>;</span></span><br />
+ <span class="line">3. <span class="str">}</span></span><br />
+ <span class="line">4. <span class="str"><span class="sel">@keyframes</span> blink {</span></span><br />
+ <span class="line">5.        <span class="str"><span class="attr">0%</span> { <span class="sel">opacity</span>: <span class="attr">1</span>; }</span></span><br />
+ <span class="line">6.        <span class="str"><span class="attr">50%</span> { <span class="sel">opacity</span>: <span class="attr">1</span>; }</span></span><br /> 
+ <span class="line">7.        <span class="str"><span class="attr">50.01%</span> { <span class="sel">opacity</span>: <span class="attr">0</span>; }</span></span><br />
+ <span class="line">8.        <span class="str"><span class="attr">100%</span> { <span class="sel">opacity</span>: <span class="attr">0</span>; }</span></span><br />
+ <span class="line">9. <span class="str">}</span></span>
+                        </code>
+                    </pre>
+                </div><!--css-->
+                <div id="js" style="display: none;">
+                    <pre>
+                        <code>
+// JS
+<span class="underline"></span>
+ <span class="line">1. <span class="str"><span class="tag">var</span> <span class="sel">i</span> = <span class="attr">0</span>, <span class="sel">text</span>, <span class="sel">str</span>;</span></span><br />
+ <span class="line">2. <span class="str"><span class="tag">function</span> <span class="sel">type</span>() {</span></span><br />
+ <span class="line">3.    <span class="str">text = str.<span class="sel">slice</span>(<span class="attr">0</span>, ++i);</span></span><br />
+ <span class="line">4.    <span class="str">document.<span class="sel">getElementById</span>(<span class="val">'insert'</span>).<span class="sel">innerHTML</span> = text;</span></span><br />
+ <span class="line">5.    <span class="str"><span class="tag">if</span> (text === str) <span class="tag">return</span>;</span></span><br />
+ <span class="line">6.    <span class="str">setTimeout(type, <span class="attr">50</span>);</span></span><br /> 
+ <span class="line">7. <span class="str">};</span></span><br />
+ <span class="line">8. <span class="str"><span class="tag">function</span> <span class="sel">reType</span>(<span class="sel">e</span>) {</span></span><br />
+ <span class="line">9.    <span class="str">i = <span class="attr">0</span>, str =  e;</span></span><br /> 
+<span class="line">11.   <span class="str">type();</span></span><br /> 
+<span class="line">12. <span class="str">};</span></span><br /> 
+                        </code>
+                    </pre>
+                </div><!--js-->
+            </div><!-- display -->
         </header>
         <main>
             <article id="dev">
@@ -296,25 +475,31 @@
             </article>
             <article id="video">
                 <h2>Videography</h2>
-                <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </article>
-            <article id="design">
-                <h2>Design</h2>
+                <!--<iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
             </article>
             <article id="anim">
                 <h2>Animation</h2>
-                <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <!--<iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
             </article>
         </main>
-        <aside>
-            <h2>Contact</h2>
-            <a href="mailto:furrm.john@gmail.com">FurrM.John@gmail.com</a>
-            <a href="tel:1-334-220-1487">334-220-1487</a>
-        </aside>
     </div>
     <script>
-        setTimeout(type, 500);
+        var hash = window.location.hash.substring(1);
+        if (hash != "") {
+            if (hash == "dev") {
+                str = "Web Developer";
+            } else if (hash == "photo") {
+                str = "Photographer"
+            } else if (hash == "video") {
+                str = "Videographer"
+            } else if (hash == "adnim") {
+                str = "Animator"
+            } else {
+                str = "404 Not Found"
+            }
+            setTimeout(type, 500);
+        }
     </script>
 </body>
 </html>
