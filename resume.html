@@ -232,10 +232,10 @@
             background: #333;
         }
         header code span.line {
-                display: block;
-                text-indent: -1.5em;
-                margin-left: 1em;
-                line-height: 1em;
+            display: block;
+            text-indent: -1.5em;
+            margin-left: 1em;
+            line-height: 1em;
         }
         span.str {
             color: #CCC;
@@ -297,17 +297,14 @@
             border-bottom: 1px solid black;
         }
         main {
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s ease-in;
-            animation-delay: 0.5s;
-            animation-fill-mode: forwards;
+           margin-top: -365px;
         }
         article {
             display: none;
         }
         article:target {
             display: block;
+            padding-top: 365px;
         }
         section p {
             margin-bottom: 1em;
@@ -456,16 +453,6 @@
             50.01% { opacity: 0; }
             100% { opacity: 0; }
         }
-        /* Fade Animations */
-        @keyframes fadeIn { 
-            from {
-                top: -20px;
-                opacity:0; 
-            } 
-            to {
-                top: 0;
-                opacity:1; 
-            } 
     </style>
     <script>
         var i = 0, text, str;
@@ -645,7 +632,7 @@
                         <h2>Projects</h2>
                         <ul>
                             <li>
-                                <h3><a target="_blank" href="http://drivesafealabama.org/">DriveSafeAlbama.org</a> Developer</h3>
+                                <h3><a target="_blank" href="http://drivesafealabama.org/">DriveSafeAlabama.org</a> Developer</h3>
                                 <p>Adaptive Design, Custom jQuery slider, SVG Clipping Masks</p>
                             </li>
                             <li>
