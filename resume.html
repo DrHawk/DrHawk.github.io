@@ -136,8 +136,12 @@
             color: #CCC;
             transform: scale(0.9);
         }
-        header .close {
-            display: none;
+        header #close {
+            opacity: 0;
+            transition: opacity .2s ease-in-out;
+        }
+        header #close a {
+            color: #F00;
             padding: 0.5em 1em;
         }
         header .buttons a {
@@ -307,7 +311,7 @@
             str =  e;   
             type();
         };
-        function showDiv(button){
+        function showDiv(button) {
             var buttons = document.querySelectorAll('.buttons li'), i;
             for (i = 0; i < buttons.length; ++i) {
               buttons[i].className = "";
@@ -324,7 +328,19 @@
               divs[i].style.display = "none";
             }
             document.getElementById(className).style.display = 'block';
+            document.getElementById('close').style.opacity = 1;
         };
+        function closeDivs(button) {
+            document.getElementById('close').style.opacity = 0;
+            var buttons = document.querySelectorAll('.buttons li'), i;
+            for (i = 0; i < buttons.length; ++i) {
+              buttons[i].className = "";
+            }
+            var divs = document.querySelectorAll('.display div'), i;
+            for (i = 0; i < divs.length; ++i) {
+              divs[i].style.display = "none";
+            }
+        }
     </script>
 </head>
 <body>
@@ -336,7 +352,7 @@
                     <li><a class="html" onclick="showDiv(this)">HTML</a></li>
                     <li><a class="css" onclick="showDiv(this)">CSS</a></li>
                     <li><a class="js" onclick="showDiv(this)">JS</a></li>
-                    <li><a class="close" onclick="closeDivs(this)">X</a></li>
+                    <li id="close"><a onclick="closeDivs()">X</a></li>
                 </ul>
             </section><!--buttons-->
             <div class="display">
@@ -360,7 +376,7 @@
  <span class="line">4.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Web Developer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#dev"</span><span class="tag">&gt;</span><span class="str">Web Developer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
  <span class="line">5.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Photographer')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#photo"</span><span class="tag">&gt;</span><span class="str">Photographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
  <span class="line">6.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Videographer');</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#video"</span><span class="tag">&gt;</span><span class="str">Videographer</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
- <span class="line">8.         <span class="tag">&lt;li&gt;&lt;a</span><span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Animator')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#anim"</span><span class="tag">&gt;</span><span class="str">Animator</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
+ <span class="line">8.         <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">onclick</span><span class="str">=</span><span class="val">"reType('Animator')"</span> <span class="attr">href</span><span class="str">=</span><span class="val">"#anim"</span><span class="tag">&gt;</span><span class="str">Animator</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></span><br />
  <span class="line">9.     <span class="tag">&lt;/ul&gt;</span></span><br />
 <span class="line">10. <span class="tag">&lt;/nav&gt;</span></span><br />
            
