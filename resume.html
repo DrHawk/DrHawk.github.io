@@ -92,9 +92,9 @@
             height: auto;
             border: 0;
             border-radius: 3px;
-            box-shadow: 5px 5px 10px #b5b5b5;
-            -moz-box-shadow: 5px 5px 10px #b5b5b5;
-            -webkit-box-shadow: 5px 5px 10px #b5b5b5;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
         }
         .cf:before,
         .cf:after {
@@ -113,9 +113,9 @@
             display: block !important;
         }
         .videoContainer {
-            box-shadow: 5px 5px 10px #b5b5b5;
-            -moz-box-shadow: 5px 5px 10px #b5b5b5;
-            -webkit-box-shadow: 5px 5px 10px #b5b5b5;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
         }
         .videoWrapper {
             position: relative;
@@ -157,9 +157,9 @@
             margin-bottom: 2em;
             background-color: #1d1f21;
             border: 2px solid #000000;
-            box-shadow: 5px 5px 10px #b5b5b5;
-            -moz-box-shadow: 5px 5px 10px #b5b5b5;
-            -webkit-box-shadow: 5px 5px 10px #b5b5b5;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
         }
         h1 {
             padding: 1em 0;
@@ -458,6 +458,19 @@
             }
             
         }
+        /* Photo Section Styles */
+        #photo img {vertical-align: top;}
+        #photo img:hover {
+            transform: scale(1.2);
+            transition: all .4s ease-in-out;
+        }
+        @media all and (max-width: 800px) {
+            #photo img {
+                display: block;
+                margin: 1em auto;
+            }
+            
+        }
         /* Video Section Styles */
         #video .videoContainer {
             display: inline-block;
@@ -705,6 +718,12 @@
             </article>
             <article id="photo">
                 <h2>Photography</h2>
+                <img src="img/star.jpg" alt="Star trails beind water tower" width="400" height="267" />
+                <img src="img/tree.jpg" alt="Trees flanking path" height="267" width="178" />
+                <img src="img/dance.jpg" alt="Belly Dancer by sunset" width="400" height="267" />
+                <img src="img/guitar.jpg" alt="Guy playing guitar" height="267" width="178" />
+                <img src="img/band.jpg" alt="Goup of guys in a band" width="400" height="267" />
+                <img src="img/car2.jpg" alt="Collage of car pictures" width="400" height="267" />
             </article>
             <article id="video">
                 <h2>Videography</h2>
