@@ -421,13 +421,13 @@
         #dev section:first-of-type {
             width: 100%;
         }
-        #dev > div {
+        #dev > div + div {
             margin-top: 2em;
             margin-left: 2.5%;
             padding-left: 2.5%; 
             border-left: 1px solid #ccc;
         }
-        #dev > div section:first-of-type {
+        #dev > div + div section:first-of-type {
             margin-top: -2em;
         }
         #dev p span {white-space: nowrap;}
@@ -441,13 +441,14 @@
             #dev section {
                 width: 100%;
             }
-            #dev > div {
+            #dev > div,
+            #dev > div + div {
                 width: 100%;
                 margin: 0;
                 padding: 0;
                 border: 0;
             }
-            #dev > div section:first-of-type {margin: 0;}
+            #dev > div + div section:first-of-type {margin: 0;}
             #dev section li a {
                 display: inline-block;
             }
@@ -628,36 +629,36 @@
                 <section>
                     <h2>Expertise</h2>
                     <p><strong>Languages:</strong> Javascript, HTML5, CSS3, PHP, SQL, Python</p>
-                    <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, ExpressionEngine, Wordpress, Jekyll<p>
+                    <p><strong>Libraries / Frameworks / CMS:</strong> jQuery, Skeleton, ExpressionEngine, Wordpress, Jekyll<p>
                     <p><strong>Skills:</strong> HTML Email Development, Responsive Design, Legacy Browser Support</p>
-                    <p><strong>Software / Utilities:</strong> Git, Adobe Creative Suite, </p>
-                </section>
-                <section>
-                    <h2>Experience</h2>
-                    <ul>
-                        <li>
-                            <h3>Web Developer</h3>
-                            <p><a target="_blank" href="http://stampideas.com/">Stamp Ideas</a>
-                            <span>2013 - Present</span></p>
-                        </li>
-                        <li>
-                            <h3>Creative Intern</h3>
-                            <p>LWT Communication
-                            <span>6&ndash;8/2012</span></p>
-                        </li>
-                        <li>
-                            <h3>Mac Lab Assistant</h3>
-                            <p><a target="_blank" href="http://mca.edu/">Memphis College of Art</a>
-                            <span>2009 - 2012</span></p>
-                        </li>
-                        <li>
-                            <h3>Eagle Scout</h3>
-                            <p>Boy Scouts of America
-                            2009</p>
-                        </li>
-                    </ul>
+                    <p><strong>Software / Utilities:</strong> Git, Adobe Creative Suite, Navicat</p>
                 </section>
                 <div>
+                    <section>
+                        <h2>Experience</h2>
+                        <ul>
+                            <li>
+                                <h3>Web Developer</h3>
+                                <p><a target="_blank" href="http://stampideas.com/">Stamp Ideas</a>
+                                <span>2013 - Present</span></p>
+                            </li>
+                            <li>
+                                <h3>Creative Intern</h3>
+                                <p>LWT Communication
+                                <span>6&ndash;8/2012</span></p>
+                            </li>
+                            <li>
+                                <h3>Mac Lab Assistant</h3>
+                                <p><a target="_blank" href="http://mca.edu/">Memphis College of Art</a>
+                                <span>2009 - 2012</span></p>
+                            </li>
+                            <li>
+                                <h3>Eagle Scout</h3>
+                                <p>Boy Scouts of America
+                                2009</p>
+                            </li>
+                        </ul>
+                    </section>
                     <section>
                         <h2>Education</h2>
                         <ul>
@@ -672,6 +673,8 @@
                             </li>
                         </ul>
                     </section>
+                </div>
+                <div>
                     <section>
                         <h2>Projects</h2>
                         <ul>
@@ -680,8 +683,12 @@
                                 <p>Adaptive Design, Custom jQuery slider, SVG Clipping Masks</p>
                             </li>
                             <li>
-                                <h3><a target="_blank" href=""></a> Developer</h3>
-                                <p></p>
+                                <h3><a target="_blank" href="http://rsa-al.gov">RSA-AL.gov</a> Developer</h3>
+                                <p>Reponsive and Moble Optimized, Full Page Fixed Backgrounds</p>
+                            </li>
+                            <li>
+                                <h3><a target="_blank" href="http://rsa-al.gov">HollowayCredit.com</a> Developer</h3>
+                                <p>Reponsive and Moble Optimized, Full Page Fixed Backgrounds</p>
                             </li>
                             <li>
                                 <h3><a target="_blank" href="http://poppy-games.com">Poppy-Games.com</a> Developer &#92; Designer</h3>
@@ -735,12 +742,12 @@
                 </div><!--imageContainer-->
                 <div class="contentContainer">
                     <p><strong>Hello world!</strong></p>
-                    <p>My name is John Furr, and I love <span class="tag">Cars</span>, <span class="attr">Cameras</span>, <span class="val">Computers</span>, and other things that don't start with the letter 'C'.</p>
+                    <p>My name is John Furr, and I love <span class="tag">cars</span>, <span class="attr">cameras</span>, <span class="val">computers</span>, and other things that don't start with the letter 'C'.</p>
                     <div class="venn">
                         <div>ART</div>
                         <div>TECH</div>
                     </div>
-                    <p>My innate curosity has lead me down many avenues of study, but I am particularly interested in the intersection of <span class="tag">art</span> and <span class="attr">technology.</span></p>
+                    <p>My innate curiosity has lead me down many avenues of study, but I am particularly interested in the intersection of <span class="tag">art</span> and <span class="attr">technology.</span></p>
                 </div><!--contentContainer-->
             </section>
             <section id="contact">
@@ -750,7 +757,7 @@
                         <li><a href="mailto:furrm.john@gmail.com?subject=Job%20Offer">FurrM.John@gmail.com</a></li>
                         <li><a href="https://www.linkedin.com/in/johnfurr" target="_blank">LinkedIn</a></li>
                         <li><a href="https://github.com/JohnMakes" target="_blank">GitHub</a></li>
-                        <li><a href="img/resume.pdf" target="_blank">Download my resume.</a></li>
+                        <li><a href="img/JohnFurr-Resume.pdf" target="_blank">Download my resume.</a></li>
                     </ul>
                 </nav>
             </section>
