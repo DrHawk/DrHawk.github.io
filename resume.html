@@ -559,6 +559,21 @@
               divs[i].style.display = "none";
             }
         }
+        var hash = window.location.hash.substring(1);
+        if (hash != "") {
+            if (hash == "dev") {
+                str = "Web Developer";
+            } else if (hash == "photo") {
+                str = "Photographer"
+            } else if (hash == "video") {
+                str = "Videographer"
+            } else if (hash == "anim") {
+                str = "Animator"
+            } else {
+                str = "404 Not Found"
+            }
+            setTimeout(type, 500);
+        }
     </script>
 </head>
 <body>
@@ -718,12 +733,12 @@
             </article>
             <article id="photo">
                 <h2>Photography</h2>
-                <img src="img/star.jpg" alt="Star trails beind water tower" width="400" height="267" />
-                <img src="img/tree.jpg" alt="Trees flanking path" height="267" width="178" />
-                <img src="img/dance.jpg" alt="Belly Dancer by sunset" width="400" height="267" />
-                <img src="img/guitar.jpg" alt="Guy playing guitar" height="267" width="178" />
-                <img src="img/band.jpg" alt="Goup of guys in a band" width="400" height="267" />
-                <img src="img/car2.jpg" alt="Collage of car pictures" width="400" height="267" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/star.jpg" alt="Star trails beind water tower" width="400" height="267" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/tree.jpg" alt="Trees flanking path" height="267" width="178" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/dance.jpg" alt="Belly Dancer by sunset" width="400" height="267" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/guitar.jpg" alt="Guy playing guitar" height="267" width="178" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/band.jpg" alt="Goup of guys in a band" width="400" height="267" />
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="img/car2.jpg" alt="Collage of car pictures" width="400" height="267" />
             </article>
             <article id="video">
                 <h2>Videography</h2>
@@ -788,28 +803,21 @@
         </footer>
     </div>
     <script>
-        var hash = window.location.hash.substring(1);
-        if (hash != "") {
-            if (hash == "dev") {
-                str = "Web Developer";
-            } else if (hash == "photo") {
-                str = "Photographer"
-            } else if (hash == "video") {
-                str = "Videographer"
-            } else if (hash == "anim") {
-                str = "Animator"
-            } else {
-                str = "404 Not Found"
-            }
-            setTimeout(type, 500);
-        }
         document.documentElement.className = 'js';
         function init() {
             var vidDefer = document.getElementsByTagName('iframe');
             for (var i=0; i<vidDefer.length; i++) {
-            if(vidDefer[i].getAttribute('data-src')) {
-            vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
-            } } }
+                if(vidDefer[i].getAttribute('data-src')) {
+                    vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+                } 
+            }
+            var imgDefer = document.getElementsByTagName('img');
+            for (var i=0; i<imgDefer.length; i++) {
+                if(imgDefer[i].getAttribute('data-src')) {
+                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+                } 
+            }
+        }
         window.onload = init;
     </script>
 </body>
