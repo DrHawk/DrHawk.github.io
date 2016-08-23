@@ -516,20 +516,6 @@
             100% { opacity: 0; }
         }
     </style>
-    <script>
-        var i = 0, text, str;
-        function type() {
-            text = str.slice(0, ++i);
-            document.getElementById('insert').innerHTML = text;
-            if (text === str) return;
-            setTimeout(type, 50); 
-        };
-        function reType(e) {
-            i = 0,
-            str =  e.innerHTML;   
-            type();
-        };
-    </script>
 </head>
 <body>
     <div style="display: none;" id="warning"><p class="ie" style="display: none;"><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjStbWFmdTOAhUK4SYKHTJSBIwQFggjMAA&url=https%3A%2F%2Fwww.google.com%2Fchrome%2Fbrowser%2Fdesktop%2F&usg=AFQjCNEnCNpcuwbjwWkR_ZzY4O_v0ORT9A&sig2=kOPlTTIR8TsHi0QjLsMyag" target="_blank">PLZ UPDATE YOUR BROWSER!</a></p><p class="script" style="display: none;">Please enable javascript for a optimal experience.</p></div>
@@ -759,6 +745,18 @@
     </div>
     <script>
         document.documentElement.className = 'js';
+        var i = 0, text, str;
+        function type() {
+            text = str.slice(0, ++i);
+            document.getElementById('insert').innerHTML = text;
+            if (text === str) return;
+            setTimeout(type, 50); 
+        };
+        function reType(e) {
+            i = 0,
+            str =  e.innerHTML;   
+            type();
+        };
         function showDiv(button) {
             var buttons = document.querySelectorAll('.buttons li'), i;
             for (i = 0; i < buttons.length; ++i) {
@@ -789,21 +787,6 @@
               divs[i].style.display = "none";
             }
         }
-        var hash = window.location.hash.substring(1);
-        if (hash != "") {
-            if (hash == "dev") {
-                str = "Web Developer";
-            } else if (hash == "photo") {
-                str = "Photographer"
-            } else if (hash == "video") {
-                str = "Videographer"
-            } else if (hash == "anim") {
-                str = "Animator"
-            } else {
-                str = "404 Not Found"
-            }
-            setTimeout(type, 500);
-        }
         function init() {
             var vidDefer = document.getElementsByTagName('iframe');
             for (var i=0; i<vidDefer.length; i++) {
@@ -818,7 +801,24 @@
                 } 
             }
         }
-        window.onload = init;
+        window.addEventListener("load",function(){
+            var hash = window.location.hash.substring(1);
+            if (hash != "") {
+                if (hash == "dev") {
+                    str = "Web Developer";
+                } else if (hash == "photo") {
+                    str = "Photographer"
+                } else if (hash == "video") {
+                    str = "Videographer"
+                } else if (hash == "anim") {
+                    str = "Animator"
+                } else {
+                    str = "404 Not Found"
+                }
+                type();
+                setTimeout(init, 1000);
+            } 
+        });
     </script>
 </body>
 </html>
