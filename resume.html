@@ -558,7 +558,14 @@
             for (i = 0; i < divs.length; ++i) {
               divs[i].style.display = "none";
             }
-        }
+        }        
+        function init() {
+            var vidDefer = document.getElementsByTagName('iframe');
+            for (var i=0; i<vidDefer.length; i++) {
+            if(vidDefer[i].getAttribute('data-src')) {
+            vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+            } } }
+        window.onload = init;
     </script>
 </head>
 <body>
@@ -729,22 +736,22 @@
                 <h2>Videography</h2>
                 <div class="videoContainer">
                     <div class="videoWrapper">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/jggbceDxlYI"></iframe>
+                        <iframe width="640" height="360" src="" data-src="https://www.youtube.com/embed/jggbceDxlYI"></iframe>
                     </div><!--videoWrapper-->
                 </div><!--videoContainer-->
                 <div class="videoContainer">
                     <div class="videoWrapper">
-                        <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360"></iframe>
+                        <iframe src="" data-src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360"></iframe>
                     </div><!--videoWrapper-->
                 </div><!--videoContainer-->
                 <div class="videoContainer">
                     <div class="videoWrapper">
-                        <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480"></iframe>
+                        <iframe src="" data-src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480"></iframe>
                     </div><!--videoWrapper-->
                 </div><!--videoContainer-->
                 <div class="videoContainer">
                     <div class="videoWrapper">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/9Td8vhKFRlc"></iframe>
+                        <iframe width="640" height="360" src="" data-src="https://www.youtube.com/embed/9Td8vhKFRlc"></iframe>
                     </div><!--videoWrapper-->
                 </div><!--videoContainer-->
             </article>
@@ -752,7 +759,7 @@
                 <h2>Animation</h2>
                 <div class="videoContainer">
                     <div class="videoWrapper">
-                        <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360"></iframe>
+                        <iframe src="" data-src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360"></iframe>
                     </div><!--videoWrapper-->
                 </div><!--videoContainer-->
             </article>
