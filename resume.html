@@ -112,6 +112,20 @@
         .no-js #warning .script {
             display: block !important;
         }
+        .videoWrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .videoWrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         #warning {
             top: 0;
             left: 0;
@@ -308,9 +322,6 @@
         section p {
             margin-bottom: 1em;
         }
-        section a {
-            display: block;
-        }
         /* About Section Styles */
         #about p {font-family: 'Source Sans Pro', sans-serif;}
         #about p span {
@@ -414,6 +425,7 @@
         #dev > div section:first-of-type {
             margin-top: -2em;
         }
+        #dev p span {white-space: nowrap;}
         @media all and (max-width: 60em) {
             #dev section p strong {
                 display: block;
@@ -435,6 +447,12 @@
                 display: inline-block;
             }
             
+        }
+        /* Video Section Styles */
+        #video .videoContainer {
+            display: inline-block;
+            width: 45%;
+            margin-bottom: 0.5em;
         }
         /* Blink Animation */
         .blink {
@@ -600,7 +618,7 @@
         </header>
         <main>
             <article id="dev">
-                <h2>Web Developer</h2>
+                <h2>Web Development</h2>
                 <p>Curiosity about how things work has helped me become a better web developer, learn new technologies, and solve problems.</p>
                 <section>
                     <h2>Expertise</h2>
@@ -615,17 +633,17 @@
                         <li>
                             <h3>Web Developer</h3>
                             <p><a target="_blank" href="http://stampideas.com/">Stamp Ideas</a>
-                            2013 - Present</p>
+                            <span>2013 - Present</span></p>
                         </li>
                         <li>
                             <h3>Creative Intern</h3>
-                            <p>LWT Communication<br>
-                                6-8/2012</p>
+                            <p>LWT Communication
+                            <span>6&ndash;8/2012</span></p>
                         </li>
                         <li>
                             <h3>Mac Lab Assistant</h3>
                             <p><a target="_blank" href="http://mca.edu/">Memphis College of Art</a>
-                            2009 - 2012</p>
+                            <span>2009 - 2012</span></p>
                         </li>
                         <li>
                             <h3>Eagle Scout</h3>
@@ -641,7 +659,7 @@
                             <li>
                                 <h3>BFA in Design Arts</h3>
                                 <p>
-                                    <a href="http://mca.edu/" target="_blank">Memphis College of Art</a>
+                                    <a href="http://mca.edu/" target="_blank">Memphis College of Art</a><br>
                                     Concentration in Digital Media<br>
                                     Minor in Art History<br>
                                     2009 - 2013
@@ -657,8 +675,12 @@
                                 <p>Adaptive Design, Custom jQuery slider, SVG Clipping Masks</p>
                             </li>
                             <li>
+                                <h3><a target="_blank" href=""></a> Developer</h3>
+                                <p></p>
+                            </li>
+                            <li>
                                 <h3><a target="_blank" href="http://poppy-games.com">Poppy-Games.com</a> Developer &#92; Designer</h3>
-                                <p>CSS and SVG Animations,</p>
+                                <p>CSS and SVG Animations</p>
                             </li>
                         </ul>
                     </section>
@@ -669,12 +691,34 @@
             </article>
             <article id="video">
                 <h2>Videography</h2>
-                <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <div class="videoContainer">
+                    <div class="videoWrapper">
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/jggbceDxlYI"></iframe>
+                    </div><!--videoWrapper-->
+                </div><!--videoContainer-->
+                <div class="videoContainer">
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/64304578?portrait=0" width="640" height="360"></iframe>
+                    </div><!--videoWrapper-->
+                </div><!--videoContainer-->
+                <div class="videoContainer">
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/33529924?portrait=0" width="640" height="480"></iframe>
+                    </div><!--videoWrapper-->
+                </div><!--videoContainer-->
+                <div class="videoContainer">
+                    <div class="videoWrapper">
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/9Td8vhKFRlc"></iframe>
+                    </div><!--videoWrapper-->
+                </div><!--videoContainer-->
             </article>
             <article id="anim">
                 <h2>Animation</h2>
-                <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <div class="videoContainer">
+                    <div class="videoWrapper">
+                        <iframe src="https://player.vimeo.com/video/64304576?portrait=0" width="640" height="360"></iframe>
+                    </div><!--videoWrapper-->
+                </div><!--videoContainer-->
             </article>
         </main>
         <footer>
