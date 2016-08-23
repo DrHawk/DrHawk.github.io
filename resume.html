@@ -529,51 +529,6 @@
             str =  e.innerHTML;   
             type();
         };
-        function showDiv(button) {
-            var buttons = document.querySelectorAll('.buttons li'), i;
-            for (i = 0; i < buttons.length; ++i) {
-              buttons[i].className = "";
-            }
-            var parent = button.parentElement;
-            var className = button.getAttribute("class");
-            if (parent.className == 'active') {
-                parent.className = "";
-            }else {
-                parent.className = "active";
-            }
-            var divs = document.querySelectorAll('.display div'), i;
-            for (i = 0; i < divs.length; ++i) {
-              divs[i].style.display = "none";
-            }
-            document.getElementById(className).style.display = 'block';
-            document.getElementById('close').style.opacity = 1;
-        };
-        function closeDivs(button) {
-            document.getElementById('close').style.opacity = 0;
-            var buttons = document.querySelectorAll('.buttons li'), i;
-            for (i = 0; i < buttons.length; ++i) {
-              buttons[i].className = "";
-            }
-            var divs = document.querySelectorAll('.display div'), i;
-            for (i = 0; i < divs.length; ++i) {
-              divs[i].style.display = "none";
-            }
-        }
-        var hash = window.location.hash.substring(1);
-        if (hash != "") {
-            if (hash == "dev") {
-                str = "Web Developer";
-            } else if (hash == "photo") {
-                str = "Photographer"
-            } else if (hash == "video") {
-                str = "Videographer"
-            } else if (hash == "anim") {
-                str = "Animator"
-            } else {
-                str = "404 Not Found"
-            }
-            setTimeout(type, 500);
-        }
     </script>
 </head>
 <body>
@@ -804,6 +759,51 @@
     </div>
     <script>
         document.documentElement.className = 'js';
+        function showDiv(button) {
+            var buttons = document.querySelectorAll('.buttons li'), i;
+            for (i = 0; i < buttons.length; ++i) {
+              buttons[i].className = "";
+            }
+            var parent = button.parentElement;
+            var className = button.getAttribute("class");
+            if (parent.className == 'active') {
+                parent.className = "";
+            }else {
+                parent.className = "active";
+            }
+            var divs = document.querySelectorAll('.display div'), i;
+            for (i = 0; i < divs.length; ++i) {
+              divs[i].style.display = "none";
+            }
+            document.getElementById(className).style.display = 'block';
+            document.getElementById('close').style.opacity = 1;
+        };
+        function closeDivs(button) {
+            document.getElementById('close').style.opacity = 0;
+            var buttons = document.querySelectorAll('.buttons li'), i;
+            for (i = 0; i < buttons.length; ++i) {
+              buttons[i].className = "";
+            }
+            var divs = document.querySelectorAll('.display div'), i;
+            for (i = 0; i < divs.length; ++i) {
+              divs[i].style.display = "none";
+            }
+        }
+        var hash = window.location.hash.substring(1);
+        if (hash != "") {
+            if (hash == "dev") {
+                str = "Web Developer";
+            } else if (hash == "photo") {
+                str = "Photographer"
+            } else if (hash == "video") {
+                str = "Videographer"
+            } else if (hash == "anim") {
+                str = "Animator"
+            } else {
+                str = "404 Not Found"
+            }
+            setTimeout(type, 500);
+        }
         function init() {
             var vidDefer = document.getElementsByTagName('iframe');
             for (var i=0; i<vidDefer.length; i++) {
